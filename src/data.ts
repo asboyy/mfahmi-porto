@@ -7,7 +7,7 @@ export const PERSONAL_INFO = {
   title: "Software Engineering Student",
   subtitle:
     "Hi, I'm Fahmi. A passionate Software Engineering student building digital experiences.",
-  avatarUrl: "/src/assets/images/profile.jpeg",
+  avatarUrl: "/images/profile.jpeg",
   aboutText:
     "I am a software engineering student focusing on front-end development and UI/UX design. I love creating functional and aesthetically pleasing web and mobile applications. My expertise lies in bridging the gap between design and development, ensuring user-centric solutions.",
 };
@@ -72,7 +72,7 @@ export const PROJECTS: Project[] = [
     category: "Mobile App Design & Dev",
     description:
       "High-fidelity mobile e-commerce redesign focusing on custom animations, seamless checkout flows, and user-centric interfaces.",
-    imageUrl: "/src/assets/images/project_ecommerce_1784563972824.jpg",
+    imageUrl: "/images/project_ecommerce_1784563972824.jpg",
     tags: ["Flutter", "Figma", "Redux", "Clean Architecture"],
     liveUrl: "https://github.com",
     githubUrl: "https://github.com",
@@ -102,7 +102,7 @@ export const PROJECTS: Project[] = [
     category: "Web App Development",
     description:
       "An intuitive daily planner with drag-and-drop task organizing, priority tagging, and offline-first client syncing.",
-    imageUrl: "/src/assets/images/project_task_app_1784563988516.jpg",
+    imageUrl: "/images/project_task_app_1784563988516.jpg",
     tags: ["React", "TypeScript", "Tailwind CSS", "LocalForage"],
     liveUrl: "https://github.com",
     githubUrl: "https://github.com",
@@ -132,7 +132,7 @@ export const PROJECTS: Project[] = [
     category: "Fullstack Web App",
     description:
       "A high-performance SaaS monitoring dashboard with real-time user metrics, chart visualizations, and modular widgets.",
-    imageUrl: "/src/assets/images/project_dashboard_1784564006667.jpg",
+    imageUrl: "/images/project_dashboard_1784564006667.jpg",
     tags: ["React", "D3.js", "Express", "Node.js"],
     liveUrl: "https://github.com",
     githubUrl: "https://github.com",
