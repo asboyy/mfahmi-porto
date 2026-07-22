@@ -67,15 +67,14 @@ export const SKILLS: Skill[] = [
 // Daftar proyek-proyek teknik yang dikerjakan beserta rincian tantangan dan solusi
 export const PROJECTS: Project[] = [
   {
-    id: "ecommerce-redesign",
-    title: "E-Commerce App Redesign",
+    id: "Portal-Akademi",
+    title: "Portal Akademi",
     category: "Mobile App Design & Dev",
     description:
-      "High-fidelity mobile e-commerce redesign focusing on custom animations, seamless checkout flows, and user-centric interfaces.",
+      "a mobile portal app for an educational institution, designed to streamline student access to academic resources and services.",
     imageUrl: "/images/project_ecommerce_1784563972824.jpg",
-    tags: ["Flutter", "Figma", "Redux", "Clean Architecture"],
-    liveUrl: "https://github.com",
-    githubUrl: "https://github.com",
+    tags: ["Flutter", "Figma", "Riverpod", "Clean Architecture"],
+    githubUrl: "https://github.com/asboyy/Portal-Akademi-",
     details: {
       problem:
         "Traditional mobile e-commerce apps suffer from high drop-off rates during checkout due to multi-step friction and cluttered interfaces.",
@@ -92,7 +91,7 @@ export const PROJECTS: Project[] = [
         "Dart",
         "BLoC Pattern",
         "Figma Design",
-        "Node.js Backend",
+        "PHP Backend",
       ],
     },
   },
@@ -157,7 +156,7 @@ export const CONTACTS: ContactChannel[] = [
   {
     name: "GitHub",
     iconName: "Github",
-    url: "https://github.com",
+    url: "https://github.com/asboyy",
     username: "Asboyy",
     color: "bg-[#24292e]",
   },
