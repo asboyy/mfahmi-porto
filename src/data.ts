@@ -115,12 +115,6 @@ export const PROJECTS: Project[] = [
 // Saluran kontak media sosial dan email pribadi
 export const SKILLS: Skill[] = [
   {
-    name: "Flutter",
-    iconName: "Smartphone",
-    color: "bg-[#02569B]",
-    category: "Mobile",
-  },
-  {
     name: "Figma",
     iconName: "Figma",
     color: "bg-[#F24E1E]",
