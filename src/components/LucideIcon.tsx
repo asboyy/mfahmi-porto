@@ -1,35 +1,46 @@
-import { 
-  Smartphone, 
-  Figma, 
-  Atom, 
-  FileCode2, 
-  Layers, 
-  Code2, 
-  Server, 
-  GitBranch, 
-  Github, 
-  Linkedin, 
-  Mail, 
-  Twitter, 
+import {
+  Smartphone,
+  Figma,
+  Atom,
+  FileCode2,
+  Layers,
+  Code2,
+  Server,
+  GitBranch,
+  Github,
+  Linkedin,
+  Mail,
+  Twitter,
   Instagram,
   MessageCircle,
-  X, 
+  X,
   ExternalLink,
   ArrowRight,
   Send,
   CheckCircle,
-  Menu
+  Menu,
+  Braces,
+  Target,
+  FileCode,
+  Terminal,
+  Database,
+  Palette,
+  Clapperboard,
 } from "lucide-react";
 
 // Properti yang diterima oleh komponen LucideIcon
 interface LucideIconProps {
-  name: string;        // Nama ikon Lucide yang ingin ditampilkan
-  className?: string;  // Kelas Tailwind tambahan (opsional)
-  size?: number;       // Ukuran ikon piksel (opsional, bawaan 24)
+  name: string; // Nama ikon Lucide yang ingin ditampilkan
+  className?: string; // Kelas Tailwind tambahan (opsional)
+  size?: number; // Ukuran ikon piksel (opsional, bawaan 24)
 }
 
 // Komponen pembungkus untuk memetakan nama string ke komponen ikon Lucide yang sesuai
-export default function LucideIcon({ name, className = "", size = 24 }: LucideIconProps) {
+export default function LucideIcon({
+  name,
+  className = "",
+  size = 24,
+}: LucideIconProps) {
   switch (name) {
     case "Smartphone":
       return <Smartphone className={className} size={size} />;
@@ -71,6 +82,20 @@ export default function LucideIcon({ name, className = "", size = 24 }: LucideIc
       return <CheckCircle className={className} size={size} />;
     case "Menu":
       return <Menu className={className} size={size} />;
+    case "Braces":
+      return <Braces className={className} size={size} />;
+    case "Target":
+      return <Target className={className} size={size} />;
+    case "FileCode":
+      return <FileCode className={className} size={size} />;
+    case "Terminal":
+      return <Terminal className={className} size={size} />;
+    case "Database":
+      return <Database className={className} size={size} />;
+    case "Palette":
+      return <Palette className={className} size={size} />;
+    case "Clapperboard":
+      return <Clapperboard className={className} size={size} />;
     default:
       return <Code2 className={className} size={size} />;
   }

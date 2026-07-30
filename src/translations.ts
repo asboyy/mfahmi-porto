@@ -32,7 +32,6 @@ export interface TranslationSchema {
     keyFeatures: string;
     techStack: string;
     sourceCode: string;
-    liveDemo: string;
     items: {
       [id: string]: {
         title: string;
@@ -60,8 +59,6 @@ export interface TranslationSchema {
   };
   footer: {
     text: string;
-    neobrutalist: string;
-    fast: string;
   };
 }
 
@@ -101,54 +98,70 @@ export const translations: Record<"en" | "id", TranslationSchema> = {
       keyFeatures: "⭐ Key Features",
       techStack: "🔧 Tech Stack",
       sourceCode: "Source Code",
-      liveDemo: "Live Demo",
       items: {
-        "ecommerce-redesign": {
-          title: "E-Commerce App Redesign",
-          category: "Mobile App Design & Dev",
+        "portal-akademi": {
+          title: "Portal Akademi",
+          category: "Mobile Application",
           description:
-            "High-fidelity mobile e-commerce redesign focusing on custom animations, seamless checkout flows, and user-centric interfaces.",
+            "An academic portal application built with Flutter that enables students and lecturers to manage academic activities such as course registration, schedules, grades, and announcements in one platform.",
           problem:
-            "Traditional mobile e-commerce apps suffer from high drop-off rates during checkout due to multi-step friction and cluttered interfaces.",
+            "Managing academic information through separate systems makes it difficult for students and lecturers to access important data efficiently.",
           solution:
-            "Redesigned the app with a single-page drawer checkout, collapsible card components, and spring-based Micro-interactions to make shopping fluid.",
+            "Developed a Flutter-based academic portal that centralizes academic services into a single, user-friendly mobile application.",
           features: [
-            "Gesture-controlled swipe to add to cart",
-            "Interactive 3D-like card payments container",
-            "Fast checkouts with smart address completions",
-            "Personalized product recommendation feeds based on user interest",
+            "Student & lecturer authentication",
+            "Course registration (KRS)",
+            "Grade and transcript viewing",
+            "Academic schedules",
+            "Admin management dashboard",
           ],
         },
-        "smart-task-manager": {
-          title: "Smart Task Manager",
-          category: "Web App Development",
+        "saku-financial-app": {
+          title: "SAKU Financial App",
+          category: "Mobile Application",
           description:
-            "An intuitive daily planner with drag-and-drop task organizing, priority tagging, and offline-first client syncing.",
+            "A personal finance application developed with Flutter to help users record income, expenses, and monitor daily financial activities.",
           problem:
-            "Users often feel overwhelmed by giant to-do lists and fail to prioritize tasks that align with their active focus goals.",
+            "Many users still manage personal finances manually, making it difficult to monitor spending habits.",
           solution:
-            "Created an elegant, neo-brutalist Kanban board featuring time-boxing, focus timers, and smart priority categorization.",
+            "Built a simple and intuitive financial management application for recording transactions and tracking expenses.",
           features: [
-            "Drag-and-drop boards using React DnD",
-            "Pomodoro Timer with ambient sound synthesizer",
-            "Daily productivity reports with interactive data graphs",
-            "Robust offline sync utilizing LocalStorage and IndexedDB",
+            "Income & expense tracking",
+            "Transaction history",
+            "Financial dashboard",
+            "Expense categorization",
           ],
         },
-        "saas-analytics-dashboard": {
-          title: "SaaS Analytics Dashboard",
-          category: "Fullstack Web App",
+        "website-umkm-talafu-coffee": {
+          title: "Website UMKM Talafu Coffee",
+          category: "Website Development",
           description:
-            "A high-performance SaaS monitoring dashboard with real-time user metrics, chart visualizations, and modular widgets.",
+            "A responsive company profile website created to introduce Talafu Coffee, showcase its products, and strengthen its online presence.",
           problem:
-            "Many monitoring dashboards lack modularity, leading to high CPU load when updating high-frequency analytical data in real-time.",
+            "The business lacked an online platform to introduce its products and reach a wider audience.",
           solution:
-            "Engineered a low-latency, modular widget dashboard backed by a light-weight Node/Express server and optimized D3 renderings.",
+            "Designed and developed a responsive company profile website with product information and contact details.",
           features: [
-            "Interactive live user-traffic bar charts and charts",
-            "Customizable drag-reorder widget layout",
-            "Exportable PDF and CSV weekly performance audits",
-            "Fast and light data fetches with optimal client memoization",
+            "Responsive landing page",
+            "Product showcase",
+            "About section",
+            "Contact page",
+          ],
+        },
+        "website-cv-talafu": {
+          title: "CV. Talafu Contractor Website",
+          category: "Website Development",
+          description:
+            "A responsive company profile website developed for CV. Talafu to present company services, portfolio, and business information professionally.",
+          problem:
+            "The company needed a professional online presence to improve credibility and introduce its services.",
+          solution:
+            "Created a responsive company profile website highlighting the company's services, completed projects, and contact information.",
+          features: [
+            "Company profile",
+            "Services section",
+            "Project portfolio",
+            "Responsive design",
           ],
         },
       },
@@ -169,9 +182,7 @@ export const translations: Record<"en" | "id", TranslationSchema> = {
       placeholderMsg: "What would you like to build together?",
     },
     footer: {
-      text: "Fahmi. Built with modern React & Tailwind CSS.",
-      neobrutalist: "🚀 Neo-Brutalist",
-      fast: "⚡ Ultra Fast",
+      text: "Fahmi.",
     },
   },
   id: {
@@ -209,54 +220,70 @@ export const translations: Record<"en" | "id", TranslationSchema> = {
       keyFeatures: "⭐ Fitur Utama",
       techStack: "🔧 Teknologi",
       sourceCode: "Kode Sumber",
-      liveDemo: "Demo Langsung",
       items: {
-        "ecommerce-redesign": {
-          title: "Redesain Aplikasi E-Commerce",
-          category: "Desain & Pengembangan Aplikasi Mobile",
+        "portal-akademi": {
+          title: "Portal Akademi",
+          category: "Aplikasi Mobile",
           description:
-            "Redesain e-commerce mobile berkualitas tinggi yang berfokus pada animasi kustom, alur checkout yang mulus, dan antarmuka ramah pengguna.",
+            "Aplikasi portal akademik yang dibangun dengan Flutter, memungkinkan mahasiswa dan dosen mengelola kegiatan akademik seperti KRS, jadwal, nilai, dan pengumuman dalam satu platform.",
           problem:
-            "Aplikasi e-commerce mobile tradisional seringkali memiliki tingkat drop-off checkout yang tinggi karena alur yang rumit dan berantakan.",
+            "Mengelola informasi akademik melalui sistem yang terpisah-pisah membuat mahasiswa dan dosen kesulitan mengakses data penting secara efisien.",
           solution:
-            "Mendesain ulang aplikasi dengan sistem checkout drawer satu halaman, komponen kartu lipat, dan mikro-interaksi berbasis pegas untuk navigasi yang lancar.",
+            "Mengembangkan portal akademik berbasis Flutter yang memusatkan layanan akademik ke dalam satu aplikasi mobile yang mudah digunakan.",
           features: [
-            "Geser gestur untuk menambahkan barang ke keranjang",
-            "Wadah pembayaran kartu interaktif bergaya 3D",
-            "Checkout cepat dengan pengisian alamat pintar",
-            "Umpan rekomendasi produk personal berbasis preferensi pengguna",
+            "Autentikasi mahasiswa & dosen",
+            "Kartu Rencana Studi (KRS)",
+            "Lihat nilai dan transkrip",
+            "Jadwal akademik",
+            "Dashboard manajemen admin",
           ],
         },
-        "smart-task-manager": {
-          title: "Manajer Tugas Pintar",
-          category: "Pengembangan Aplikasi Web",
+        "saku-financial-app": {
+          title: "Aplikasi Keuangan SAKU",
+          category: "Aplikasi Mobile",
           description:
-            "Perencana harian intuitif dengan pengaturan tugas seret-dan-lepas, tag prioritas, dan sinkronisasi klien luring pertama.",
+            "Aplikasi keuangan pribadi yang dikembangkan dengan Flutter untuk membantu pengguna mencatat pemasukan, pengeluaran, dan memantau aktivitas keuangan harian.",
           problem:
-            "Pengguna sering merasa kewalahan dengan daftar tugas yang menumpuk dan kesulitan memprioritaskan tugas yang sesuai dengan fokus harian.",
+            "Banyak pengguna masih mengelola keuangan pribadi secara manual, sehingga sulit memantau kebiasaan pengeluaran.",
           solution:
-            "Membuat papan Kanban bergaya neo-brutalis yang dilengkapi pembatasan waktu (time-boxing), timer fokus, dan kategori prioritas pintar.",
+            "Membangun aplikasi manajemen keuangan yang sederhana dan intuitif untuk mencatat transaksi dan melacak pengeluaran.",
           features: [
-            "Papan seret-dan-lepas menggunakan React DnD",
-            "Timer Pomodoro dengan synthesizer suara latar ambient",
-            "Laporan produktivitas harian dengan grafik data interaktif",
-            "Sinkronisasi luring yang andal menggunakan LocalStorage dan IndexedDB",
+            "Pelacakan pemasukan & pengeluaran",
+            "Riwayat transaksi",
+            "Dashboard keuangan",
+            "Kategorisasi pengeluaran",
           ],
         },
-        "saas-analytics-dashboard": {
-          title: "Dasbor Analitis SaaS",
-          category: "Aplikasi Web Fullstack",
+        "website-umkm-talafu-coffee": {
+          title: "Website UMKM Talafu Coffee",
+          category: "Pengembangan Website",
           description:
-            "Dasbor pemantauan SaaS berkinerja tinggi dengan metrik pengguna waktu nyata, visualisasi grafik, dan widget modular.",
+            "Website company profile responsif yang dibuat untuk memperkenalkan Talafu Coffee, menampilkan produk, dan memperkuat kehadiran online-nya.",
           problem:
-            "Banyak dasbor pemantauan kurang modular, menyebabkan beban CPU tinggi saat memperbarui data analitik frekuensi tinggi secara waktu nyata.",
+            "Usaha ini belum memiliki platform online untuk memperkenalkan produknya dan menjangkau audiens yang lebih luas.",
           solution:
-            "Merancang dasbor widget modular latensi rendah yang didukung oleh server Node/Express ringan dan rendering D3 yang dioptimalkan.",
+            "Merancang dan mengembangkan website company profile responsif yang berisi informasi produk dan kontak.",
           features: [
-            "Grafik batang lalu lintas pengguna interaktif secara langsung",
-            "Tata letak reorder widget dengan seret-dan-lepas",
-            "Ekspor laporan mingguan berupa PDF dan CSV",
-            "Pengambilan data cepat dan ringan dengan memoisasi klien optimal",
+            "Landing page responsif",
+            "Etalase produk",
+            "Bagian tentang kami",
+            "Halaman kontak",
+          ],
+        },
+        "website-cv-talafu": {
+          title: "Website CV. Talafu Contractor",
+          category: "Pengembangan Website",
+          description:
+            "Website company profile responsif yang dikembangkan untuk CV. Talafu guna menampilkan layanan, portofolio, dan informasi bisnis secara profesional.",
+          problem:
+            "Perusahaan membutuhkan kehadiran online yang profesional untuk meningkatkan kredibilitas dan memperkenalkan layanannya.",
+          solution:
+            "Membuat website company profile responsif yang menonjolkan layanan perusahaan, proyek yang telah diselesaikan, dan informasi kontak.",
+          features: [
+            "Profil perusahaan",
+            "Bagian layanan",
+            "Portofolio proyek",
+            "Desain responsif",
           ],
         },
       },
@@ -277,9 +304,7 @@ export const translations: Record<"en" | "id", TranslationSchema> = {
       placeholderMsg: "Apa yang ingin Anda bangun bersama?",
     },
     footer: {
-      text: "Fahmi. Dibuat dengan React & Tailwind CSS modern.",
-      neobrutalist: "🚀 Neo-Brutalis",
-      fast: "⚡ Sangat Cepat",
+      text: "Fahmi.",
     },
   },
 };

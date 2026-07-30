@@ -14,7 +14,6 @@ export interface Project {
   description: string; // Deskripsi singkat proyek
   imageUrl: string; // URL gambar proyek
   tags: string[]; // Tag teknologi atau fitur
-  liveUrl?: string; // Tautan demo langsung (opsional)
   githubUrl?: string; // Tautan kode sumber GitHub (opsional)
   details: {
     // Rincian proyek lebih detail untuk modal
@@ -30,6 +29,5 @@ export interface ContactChannel {
   name: string; // Nama platform (contoh: GitHub, Email)
   iconName: string; // Nama ikon Lucide yang dipetakan
   url: string; // Tautan ke profil atau email
-  username: string; // Nama pengguna atau alamat email untuk ditampilkan
   color: string; // Warna latar belakang elemen (Neo-brutalisme)
 }

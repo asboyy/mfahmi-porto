@@ -1,127 +1,143 @@
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence, useScroll, useTransform } from "motion/react";
+import { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import { motion, AnimatePresence } from "motion/react";
 import { PERSONAL_INFO } from "../data";
 import { TranslationSchema } from "../translations";
 
-// Properti untuk komponen Hero
 interface HeroProps {
-  onViewProjects: () => void; // Fungsi callback untuk berpindah ke bagian Proyek
-  onContactMe: () => void; // Fungsi callback untuk berpindah ke bagian Kontak
-  translations: TranslationSchema["hero"]; // Objek lokalisasi konten teks Hero
+  introComplete: boolean;
+  onIntroComplete: () => void;
+  translations: TranslationSchema["hero"];
 }
 
-// Koleksi kelas font yang bergantian untuk efek animasi kreatif "Hello"
-const fonts = [
-  { id: 0, class: "font-poppins" },
-  { id: 1, class: "font-bebas" },
-  { id: 2, class: "font-display" },
-  { id: 3, class: "font-outfit" },
-  { id: 4, class: "font-sora" },
-  { id: 5, class: "font-playfair" },
+// Koleksi salam "Hi, I'm Fahmi" dalam 10 bahasa berbeda
+const greetings = [
+  "Hi, I'm Fahmi",
+  "Hai, saya Fahmi",
+  "Hola, soy Fahmi",
+  "Salut, je suis Fahmi",
+  "Hallo, ich bin Fahmi",
+  "Olá, eu sou Fahmi",
+  "こんにちは、ファーミです",
+  "안녕하세요, 파미입니다",
+  "你好，我是 Fahmi",
+  "مرحبًا، أنا فهمي",
 ];
 
 export default function Hero({
-  onViewProjects,
-  onContactMe,
+  introComplete,
+  onIntroComplete,
   translations,
 }: HeroProps) {
-  const [fontIndex, setFontIndex] = useState(0);
+  const [greetingIndex, setGreetingIndex] = useState(0);
+  const hasCompletedRef = useRef(false);
+  const navigate = useNavigate();
 
-  // Mengubah indeks font secara berkala setiap 3.5 detik (jeda 2.8s + transisi 0.7s)
   useEffect(() => {
-    const timer = setInterval(() => {
-      setFontIndex((prev: number) => (prev + 1) % fonts.length);
-    }, 2500);
-    return () => clearInterval(timer);
-  }, []);
+    if (introComplete) return;
 
-  // Listener scroll halaman yang dioptimalkan kinerjanya
-  const { scrollY } = useScroll();
+    if (greetingIndex >= greetings.length - 1) {
+      const doneTimer = setTimeout(() => {
+        if (!hasCompletedRef.current) {
+          hasCompletedRef.current = true;
+          onIntroComplete();
+        }
+      }, 1200);
+      return () => clearTimeout(doneTimer);
+    }
 
-  // Mengubah nilai skala abu-abu (grayscale) dari 1.0 ke 0.0 berdasarkan jarak scroll (0-250px)
-  const grayscaleValue = useTransform(scrollY, [0, 250], [1, 0]);
-  const filterValue = useTransform(
-    grayscaleValue,
-    (val: number) => `grayscale(${val})`,
-  );
+    const timer = setTimeout(() => {
+      setGreetingIndex((prev) => prev + 1);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, [greetingIndex, introComplete, onIntroComplete]);
 
   return (
     <section
-      id="home"
-      className="py-12 md:py-20 flex flex-col items-center justify-center text-center px-4 overflow-hidden"
+      className={
+        introComplete
+          ? "min-h-[calc(100vh-4rem)] w-full flex flex-col items-center justify-center text-center px-4 py-12"
+          : "h-screen w-full flex flex-col items-center justify-center text-center px-4 overflow-hidden"
+      }
     >
-      {/* 1. Animated Greeting ("Hello") - Kept fixed in place to prevent any layout shifts */}
-      <div className="h-24 sm:h-32 flex items-center justify-center mb-6 select-none w-full">
-        <AnimatePresence mode="wait">
-          <motion.span
-            key={fontIndex}
-            className={`text-6xl sm:text-8xl font-black text-black tracking-tight ${fonts[fontIndex].class}`}
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.95 }}
-            transition={{ duration: 0.7, ease: "easeInOut" }}
-          >
-            Hello
-          </motion.span>
-        </AnimatePresence>
-      </div>
-
-      {/* 2. Profile Photo - Features an elegant loading entry & dynamic color scroll transition */}
-      <motion.div
-        className="mb-10"
-        initial={{ opacity: 0, y: 80, scale: 0.95 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{
-          type: "spring",
-          stiffness: 100,
-          damping: 15,
-          duration: 0.8,
-        }}
-      >
-        <div className="bg-white p-3 border-4 border-black rounded-2xl shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 w-44 h-44 sm:w-56 sm:h-56 md:w-64 md:h-64 flex items-center justify-center overflow-hidden">
-          <motion.img
-            src={PERSONAL_INFO.avatarUrl}
-            alt="Fahmi's portrait"
-            className="w-full h-full object-cover rounded-xl border-2 border-black"
-            style={{ filter: filterValue }}
-            referrerPolicy="no-referrer"
-          />
+      {/* FASE 1: Animasi salam 10 bahasa */}
+      {!introComplete && (
+        <div className="flex items-center justify-center w-full h-full px-4">
+          <AnimatePresence mode="wait">
+            <motion.span
+              key={greetingIndex}
+              className="text-4xl sm:text-6xl font-black text-black tracking-tight text-center font-poppins"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+            >
+              {greetings[greetingIndex]}
+            </motion.span>
+          </AnimatePresence>
         </div>
-      </motion.div>
+      )}
 
-      {/* 3. Short Introduction */}
-      <motion.div
-        className="max-w-2xl px-2 mb-8"
-        initial={{ y: 20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.3 }}
-      >
-        <p className="text-xl sm:text-2xl font-extrabold text-black tracking-tight leading-relaxed">
-          {translations.subtitle}
-        </p>
-      </motion.div>
+      {/* FASE 2: Konten Beranda (foto, teks, tombol CTA) */}
+      {introComplete && (
+        <>
+          <motion.div
+            className="mb-10"
+            initial={{ opacity: 0, y: 40, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{
+              type: "spring",
+              stiffness: 100,
+              damping: 15,
+              duration: 0.6,
+            }}
+          >
+            <div className="bg-white p-3 border-4 border-black rounded-2xl shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 w-44 h-44 sm:w-56 sm:h-56 md:w-64 md:h-64 flex items-center justify-center overflow-hidden">
+              <img
+                src={PERSONAL_INFO.avatarUrl}
+                alt="Fahmi's portrait"
+                className="w-full h-full object-cover rounded-xl border-2 border-black"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+          </motion.div>
 
-      {/* 4. Call-to-action Buttons */}
-      <motion.div
-        className="w-full max-w-md flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6"
-        initial={{ y: 20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.4 }}
-      >
-        <button
-          onClick={onViewProjects}
-          className="w-full sm:w-auto px-8 py-4 bg-blue-600 text-white text-lg font-black tracking-wider border-4 border-black rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150 cursor-pointer"
-        >
-          {translations.viewProjects}
-        </button>
+          <motion.div
+            className="max-w-2xl px-2 mb-8"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+          >
+            <h1 className="text-3xl sm:text-4xl font-black text-black tracking-tight mb-3 font-poppins">
+              Hi, I'm Fahmi
+            </h1>
+            <p className="text-xl sm:text-2xl font-extrabold text-black tracking-tight leading-relaxed">
+              {translations.subtitle}
+            </p>
+          </motion.div>
 
-        <button
-          onClick={onContactMe}
-          className="w-full sm:w-auto px-8 py-4 bg-[#2563eb] text-white text-lg font-black tracking-wider border-4 border-black rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150 cursor-pointer"
-        >
-          {translations.contactMe}
-        </button>
-      </motion.div>
+          <motion.div
+            className="w-full max-w-md flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.25 }}
+          >
+            <button
+              onClick={() => navigate("/projects")}
+              className="w-full sm:w-auto px-8 py-4 bg-blue-600 text-white text-lg font-black tracking-wider border-4 border-black rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150 cursor-pointer"
+            >
+              {translations.viewProjects}
+            </button>
+
+            <button
+              onClick={() => navigate("/contact")}
+              className="w-full sm:w-auto px-8 py-4 bg-[#2563eb] text-white text-lg font-black tracking-wider border-4 border-black rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150 cursor-pointer"
+            >
+              {translations.contactMe}
+            </button>
+          </motion.div>
+        </>
+      )}
     </section>
   );
 }

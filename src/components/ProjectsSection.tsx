@@ -9,12 +9,18 @@ interface ProjectsSectionProps {
   translations: TranslationSchema["projects"]; // Objek lokalisasi teks untuk bagian Projects
 }
 
-export default function ProjectsSection({ onSelectProject, translations }: ProjectsSectionProps) {
+export default function ProjectsSection({
+  onSelectProject,
+  translations,
+}: ProjectsSectionProps) {
   return (
-    <section id="projects" className="py-16 max-w-6xl mx-auto px-4 sm:px-6">
-      <div className="flex flex-col">
+    <section
+      id="projects"
+      className="min-h-[calc(100vh-4rem)] w-full flex items-center justify-center px-4 sm:px-6 py-16"
+    >
+      <div className="w-full max-w-6xl mx-auto flex flex-col">
         {/* Judul Bagian */}
-        <motion.h2 
+        <motion.h2
           className="text-4xl sm:text-5xl font-black text-black mb-4 tracking-tight text-center uppercase"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -23,7 +29,7 @@ export default function ProjectsSection({ onSelectProject, translations }: Proje
         >
           {translations.heading}
         </motion.h2>
-        
+
         <p className="text-center font-bold text-gray-600 mb-10 max-w-md mx-auto">
           {translations.description}
         </p>
@@ -35,7 +41,7 @@ export default function ProjectsSection({ onSelectProject, translations }: Proje
             const localized = translations.items[project.id] || {
               title: project.title,
               category: project.category,
-              description: project.description
+              description: project.description,
             };
 
             return (
@@ -77,7 +83,10 @@ export default function ProjectsSection({ onSelectProject, translations }: Proje
                   {/* Lencana Kecil Teknologi yang Digunakan */}
                   <div className="flex flex-wrap gap-1.5 mb-5">
                     {project.tags.slice(0, 3).map((tag) => (
-                      <span key={tag} className="px-2 py-0.5 bg-gray-100 text-gray-800 border border-black font-bold text-[10px] rounded">
+                      <span
+                        key={tag}
+                        className="px-2 py-0.5 bg-gray-100 text-gray-800 border border-black font-bold text-[10px] rounded"
+                      >
                         #{tag}
                       </span>
                     ))}
