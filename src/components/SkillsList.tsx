@@ -10,10 +10,13 @@ interface SkillsListProps {
 
 export default function SkillsList({ translations }: SkillsListProps) {
   return (
-    <section id="skills" className="py-16 max-w-4xl mx-auto px-4 sm:px-6">
-      <div className="flex flex-col items-center">
+    <section
+      id="skills"
+      className="min-h-[calc(100vh-4rem)] w-full flex items-center justify-center px-4 sm:px-6 py-16"
+    >
+      <div className="w-full max-w-4xl mx-auto flex flex-col items-center">
         {/* Judul Bagian */}
-        <motion.h2 
+        <motion.h2
           className="text-4xl sm:text-5xl font-black text-black mb-10 tracking-tight text-center uppercase"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -35,7 +38,9 @@ export default function SkillsList({ translations }: SkillsListProps) {
               transition={{ duration: 0.4, delay: index * 0.05 }}
             >
               {/* Wadah Ikon dengan warna latar belakang khusus masing-masing teknologi */}
-              <div className={`w-14 h-14 ${skill.color} text-white rounded-xl border-2 border-black flex items-center justify-center mb-4 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] group-hover:scale-110 transition-transform duration-200`}>
+              <div
+                className={`w-14 h-14 ${skill.color} text-white rounded-xl border-2 border-black flex items-center justify-center mb-4 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] group-hover:scale-110 transition-transform duration-200`}
+              >
                 <LucideIcon name={skill.iconName} size={28} />
               </div>
 

@@ -71,11 +71,11 @@ export default function ProjectModal({
           {/* Isi Modal (Modal Body) */}
           <div className="p-6 space-y-6">
             {/* Gambar Proyek Utama */}
-            <div className="border-4 border-black rounded-xl overflow-hidden shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] aspect-video">
+            <div className="border-4 border-black rounded-xl overflow-hidden shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
               <img
                 src={project.imageUrl}
                 alt={localized.title}
-                className="w-full h-full object-cover"
+                className="w-full h-auto object-contain block"
                 referrerPolicy="no-referrer"
               />
             </div>
@@ -140,25 +140,15 @@ export default function ProjectModal({
           </div>
 
           {/* Bagian Tombol Aksi Kaki Modal */}
-          <div className="sticky bottom-0 bg-white border-t-4 border-black p-4 flex flex-col sm:flex-row gap-3 justify-end z-20">
+          <div className="sticky bottom-0 bg-white border-t-4 border-black p-4 flex justify-end z-20">
             <a
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2.5 bg-black text-white text-sm font-black tracking-wider border-2 border-black rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-[1px] hover:-translate-y-[1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all duration-100 text-center flex items-center justify-center gap-2"
+              className="w-full sm:w-auto px-5 py-2.5 bg-black text-white text-sm font-black tracking-wider border-2 border-black rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-[1px] hover:-translate-y-[1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all duration-100 text-center flex items-center justify-center gap-2"
             >
               <LucideIcon name="Github" size={16} />
               <span>{translations.sourceCode}</span>
-            </a>
-
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-5 py-2.5 bg-blue-600 text-white text-sm font-black tracking-wider border-2 border-black rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-[1px] hover:-translate-y-[1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all duration-100 text-center flex items-center justify-center gap-2"
-            >
-              <LucideIcon name="ExternalLink" size={16} />
-              <span>{translations.liveDemo}</span>
             </a>
           </div>
         </motion.div>
