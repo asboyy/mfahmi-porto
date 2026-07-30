@@ -7,7 +7,7 @@ export const PERSONAL_INFO = {
   title: "Software Engineering Student",
   subtitle:
     "Hi, I'm Fahmi. A passionate Software Engineering student building digital experiences.",
-  avatarUrl: "/images/profile.jpeg",
+  avatarUrl: "/images/profile.jpg",
   aboutText:
     "I am a software engineering student focusing on front-end development and UI/UX design. I love creating functional and aesthetically pleasing web and mobile applications. My expertise lies in bridging the gap between design and development, ensuring user-centric solutions.",
 };
@@ -69,7 +69,7 @@ export const PROJECTS: Project[] = [
     category: "Website Development",
     description:
       "A responsive company profile website created to introduce Talafu Coffee, showcase its products, and strengthen its online presence.",
-    imageUrl: "/images/project_talafu_coffee.jpg",
+    imageUrl: "/images/project_UMKM.jpg",
     tags: ["HTML5", "CSS3", "JavaScript"],
     githubUrl: "https://github.com/asboyy/Website-UMKM-KOPI-",
     details: {
