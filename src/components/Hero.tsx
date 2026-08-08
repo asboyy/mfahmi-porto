@@ -43,7 +43,7 @@ export default function Hero({
 
     const timer = setTimeout(() => {
       setGreetingIndex((prev) => prev + 1);
-    }, 1000);
+    }, 800);
     return () => clearTimeout(timer);
   }, [greetingIndex, introComplete, onIntroComplete]);
 
@@ -65,7 +65,7 @@ export default function Hero({
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.35, ease: "easeInOut" }}
+              transition={{ duration: 0.2, ease: "easeInOut" }}
             >
               {greetings[greetingIndex]}
             </motion.span>
