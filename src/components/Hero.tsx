@@ -10,17 +10,12 @@ interface HeroProps {
   translations: TranslationSchema["hero"];
 }
 
-// Koleksi salam "Hi, I'm Fahmi" dalam 10 bahasa berbeda
+// Koleksi salam "Hi, I'm Fahmi" dalam 5 bahasa berbeda
 const greetings = [
   "Hi, I'm Fahmi",
   "Hai, saya Fahmi",
-  "Hola, soy Fahmi",
-  "Salut, je suis Fahmi",
   "Hallo, ich bin Fahmi",
   "Olá, eu sou Fahmi",
-  "こんにちは、ファーミです",
-  "안녕하세요, 파미입니다",
-  "你好，我是 Fahmi",
   "مرحبًا، أنا فهمي",
 ];
 
@@ -60,7 +55,7 @@ export default function Hero({
           : "h-screen w-full flex flex-col items-center justify-center text-center px-4 overflow-hidden"
       }
     >
-      {/* FASE 1: Animasi salam 10 bahasa */}
+      {/* FASE 1: Animasi salam 5 bahasa */}
       {!introComplete && (
         <div className="flex items-center justify-center w-full h-full px-4">
           <AnimatePresence mode="wait">
