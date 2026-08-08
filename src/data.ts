@@ -15,8 +15,8 @@ export const PERSONAL_INFO = {
 // Daftar proyek-proyek teknik yang dikerjakan beserta rincian tantangan dan solusi
 export const PROJECTS: Project[] = [
   {
-    id: "portal-akademi",
-    title: "Portal Akademi",
+    id: "academic portal",
+    title: "academic portal",
     category: "Mobile Application",
     description:
       "An academic portal application built with Flutter that enables students and lecturers to manage academic activities such as course registration, schedules, grades, and announcements in one platform.",

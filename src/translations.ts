@@ -99,8 +99,8 @@ export const translations: Record<"en" | "id", TranslationSchema> = {
       techStack: "🔧 Tech Stack",
       sourceCode: "Source Code",
       items: {
-        "portal-akademi": {
-          title: "Portal Akademi",
+        "academic portal": {
+          title: "academic portal",
           category: "Mobile Application",
           description:
             "An academic portal application built with Flutter that enables students and lecturers to manage academic activities such as course registration, schedules, grades, and announcements in one platform.",
@@ -221,8 +221,8 @@ export const translations: Record<"en" | "id", TranslationSchema> = {
       techStack: "🔧 Teknologi",
       sourceCode: "Kode Sumber",
       items: {
-        "portal-akademi": {
-          title: "Portal Akademi",
+        "portal-akademik": {
+          title: "Portal Akademik",
           category: "Aplikasi Mobile",
           description:
             "Aplikasi portal akademik yang dibangun dengan Flutter, memungkinkan mahasiswa dan dosen mengelola kegiatan akademik seperti KRS, jadwal, nilai, dan pengumuman dalam satu platform.",
